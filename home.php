@@ -21,17 +21,13 @@
 			<table border=1  bordercolor="forestgreen" width="100%" style="font-weight:bold; border-style:dotted;">
 				<caption id="wiki" style="color:chartreuse;">
 					<pre>
-     _____           _           
-    |_   _|         | |          
-      | |  _ __   __| | _____  __
-      | | | '_ \ / _` |/ _ \ \/ /
-     _| |_| | | | (_| |  __/>  < 
-    |_____|_| |_|\__,_|\___/_/\_\
-
-
+           _ _    _ 
+          (_) |  (_)
+ __      ___| | ___ 
+ \ \ /\ / / | |/ / |
+  \ V  V /| |   <| |
+   \_/\_/ |_|_|\_\_|
 </pre>
-			</caption>
-			<tr>
 				<td width="35%" align="center"><a href="wiki/elinks.php">&#9760; ELINKS &#9760;</a></td>
 				<td width="65%"> ~ Terminal Web-Browser</td>
 			</tr>
