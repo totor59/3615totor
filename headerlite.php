@@ -32,10 +32,6 @@ text-align: left;
 		</style>
 	</head>
 	<body> 
-<?php if (!$_SESSION) {
-header('Location: index.php');
-}
-?>
 <header>
 	<h1 style="color:crimson;text-align:center;">
 			<code>	<pre>

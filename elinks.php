@@ -1,5 +1,6 @@
+<?php session_start(); ?> 
 	<?php include("header.php"); ?>
-
+ <p><a href="home.php">&lsaquo;- Home</a></p>
 		<main>
 			<figure id="git">
 				<h2 style="color:darkorchid;"><pre>

@@ -1,22 +1,25 @@
 
-
-		<?php include("header.php"); ?>
-
-		<div style="color:yellow"><pre>
-		|
-		|  This is my first website made for terminal,
-		|  I hope you enjoy it !
-		|_______________________________________________
-		|
-		|  <a href="#wiki">Wiki</a>
-		|________________________
-		|
-		|  <a href="#chat">Chat</a>
-		|________________________
-		|
-		|  <a href="#docs">Docs</a>
-		|________________________
-		</pre></div>
+<?php session_start(); ?> 
+<a href="deconnexion.php">Log out</a>
+<?php include("header.php"); ?>
+		<p style="color:yellow">
+<pre>
+|  
+|  Welcome <?php echo $_SESSION['username'].'!!!<br>';?>
+|  This is my first website made for terminal,
+|  I hope you enjoy it !
+|_______________________________________________
+|
+|  <a href="#wiki">Wiki</a>
+|________________________
+|
+|  <a href="#chat">Chat</a>
+|________________________
+|
+|  <a href="#docs">Docs</a>
+|________________________
+</pre>
+</p>
 		<main>
 			<table border=1  bordercolor="forestgreen" width="100%" style="font-weight:bold; border-style:dotted;">
 				<caption id="wiki" style="color:chartreuse;">
@@ -28,7 +31,7 @@
   \ V  V /| |   <| |
    \_/\_/ |_|_|\_\_|
 </pre>
-				<td width="35%" align="center"><a href="wiki/elinks.php">&#9760; ELINKS &#9760;</a></td>
+				<td width="35%" align="center"><a href="elinks.php">&#9760; ELINKS &#9760;</a></td>
 				<td width="65%"> ~ Terminal Web-Browser</td>
 			</tr>
 			<tr>
@@ -52,6 +55,7 @@
 				<td width="65%"> ~ Multi-tools Text-editor</td>
 			</tr>
 		</table>
+<?php include("minichat.php"); ?>
 		<footer>
 			<h1>&copy;totor2016</h1>
 		</footer>
