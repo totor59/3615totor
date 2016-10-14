@@ -16,10 +16,23 @@ catch(Exception $e)
 $reponse = $bdd->query('SELECT username, message FROM minichat ORDER BY ID DESC LIMIT 0, 10');
 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 ?>
-				<h2>
-					The 10 last messages
-				</h2>
+<table class="minichat" border width="50%">
+				<caption style="text-decoration:underline; color:forestgreen;font-weight:bold;">
+<pre>
+       _           _   
+      | |         | |   
+   ___| |__   __ _| |_  
+  / __| '_ \ / _` | __| 
+ | (__| | | | (_| | |_  
+  \___|_| |_|\__,_|\__| 
+</pre>                                           
+</caption>
+				<tr>
+					<th>The 10 last messages</th>
+				</tr>
+				<tr>
 <!-- THE LOOP -->
+<td>
 <ul>
 <?php
 while ($donnees = $reponse->fetch()) {
@@ -33,10 +46,16 @@ while ($donnees = $reponse->fetch()) {
 $reponse->closeCursor();
 ?>
 </ul>
-				
-<form id="chat" action="minichat_post.php" method="post">
+</td>
+				</tr>
+				<tr>
+					<td>
+<form action="minichat_post.php" method="post">
 <p class="label">Type your message here</p>
 <textarea type="text" name="newmessage" rows="3" cols="50" maxlength=140></textarea><br>
 <input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>">
 <input type="submit" value="New Message">
 </form>
+</td>
+				</tr>
+</table>

@@ -14,6 +14,9 @@ form, label, input {
 input {
 	color: black;
 }
+.titre {
+color: darkorchid;
+}
 .label {
 	color: blue;
 }
@@ -34,7 +37,11 @@ input {
 }
 .promptuser {
         color: green;
-}  
+} 
+.menu {
+	color: yellow;
+	font-weight: bold;
+} 
 		</style>
 	</head>
 	<body> 
