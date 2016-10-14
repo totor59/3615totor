@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Refresh:60");
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=3615totor;charset=utf8', '3615totor', '3615totor');
@@ -15,10 +16,19 @@ catch(Exception $e)
 $reponse = $bdd->query('SELECT username, message FROM minichat ORDER BY ID DESC LIMIT 0, 10');
 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 ?>
-<table border width="100%">
-				<caption style="text-decoration:underline; color:forestgreen;font-weight:bold;">GENERAL</caption>
+<table class="minichat" border width="50%">
+				<caption style="text-decoration:underline; color:forestgreen;font-weight:bold;">
+<pre>
+       _           _   
+      | |         | |   
+   ___| |__   __ _| |_  
+  / __| '_ \ / _` | __| 
+ | (__| | | | (_| | |_  
+  \___|_| |_|\__,_|\__| 
+</pre>                                           
+</caption>
 				<tr>
-					<th>The ten last messages</th>
+					<th>The 10 last messages</th>
 				</tr>
 				<tr>
 <!-- THE LOOP -->
@@ -26,8 +36,13 @@ $reponse = $bdd->query('SELECT username, message FROM minichat ORDER BY ID DESC 
 <ul>
 <?php
 while ($donnees = $reponse->fetch()) {
-	echo '<li><strong>' . htmlspecialchars($donnees['username']) . ':~$</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
+	if(($donnees['username']) === "totor") {
+	echo '<li><strong class="promptadmin">' . htmlspecialchars($donnees['username']) . ':~#</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
+	} else {
+	echo '<li><strong class="promptuser">' . htmlspecialchars($donnees['username']) . ':~$</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
+	}
 }
+
 $reponse->closeCursor();
 ?>
 </ul>

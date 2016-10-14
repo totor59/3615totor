@@ -13,7 +13,7 @@ catch(Exception $e)
 // Insertion du message à l'aide d'une requête préparée
 $req = $bdd->prepare('INSERT INTO minichat (username, message) VALUES(?, ?)');
 // On execute la requete
-	$req->execute(array($_POST['username'], $_POST['newmessage']));
+$req->execute(array($_POST['username'], $_POST['newmessage']));
 }
 // Redirection du visiteur vers la page du minichat
 header('Location: home.php'); 

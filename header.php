@@ -27,8 +27,14 @@ input {
 	color: purple;
 }
 .warning, .greeter {
-text-align: left;
+        text-align: left;
+} 
+.promptadmin {
+        color: red;
 }
+.promptuser {
+        color: green;
+}  
 		</style>
 	</head>
 	<body> 
