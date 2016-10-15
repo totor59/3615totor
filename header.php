@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>&#9760; 3615t0t0r &#9760;</title>
+		<title>3615totor &#9760; &#9760; &#9760;</title>
 		<style>
 body {
 	background-color: black;

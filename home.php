@@ -1,7 +1,23 @@
 <?php session_start(); ?> 
 <a href="deconnexion.php">Log out</a>
-<?php include("header.php"); ?>
+<?php include("header.php"); 
+// Connexion à la database
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=3615totor;charset=utf8', '3615totor', '3615totor');
+}
+catch(Exception $e)
 
+{
+	die('Erreur : '.$e->getMessage());
+}
+?>
+<?php
+$username = $_SESSION['username'];
+$query = $bdd->query('SELECT * FROM users WHERE username ="'.$username.'"');
+$donnees = $query->fetch();
+$_SESSION['userid'] = $donnees['id'];
+?>
 <table border=1 width="100%">
 		<tr>
 			<th width="30%">
@@ -24,6 +40,7 @@
 </th>
 		</tr>
 		<tr>
+
 <!-- MENU -->
 			<td>
 <pre class="menu">
@@ -86,7 +103,7 @@
 			</tr>
 </table>
 		<footer>
-			<h1>&copy;totor2016</h1>
+			<p>&copy;totor2016</p>
 		</footer>
 </body>
 </html>

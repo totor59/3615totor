@@ -18,6 +18,9 @@ $password = strip_tags($_POST['password']);
 $hashpassword = sha1($password);
 $username = strip_tags($_POST['username']);
 $_SESSION['username'] = $username;
+
+
+
 ?>
 <!-- Formulaire -->
 <form style="text-align:center;" action="index.php" method="post">
@@ -48,7 +51,7 @@ if ((empty($password)) OR (empty($username))) {
 ';
 // Le password est le bon. Redirection
 }  else {
-       if	($usertrue) {
+	if	($usertrue) {
 	header('Location: home.php');
 
 // Le password envoye n'est pas le bon

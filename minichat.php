@@ -13,7 +13,14 @@ catch(Exception $e)
 // On définit les variables a envoyer a la database
 
 // Récupération des 10 derniers messages
-$reponse = $bdd->query('SELECT username, message FROM minichat ORDER BY ID DESC LIMIT 0, 10');
+$reponse = $bdd->query('
+SELECT *
+FROM minichat
+INNER JOIN users
+WHERE users.id = minichat.userid
+ORDER BY minichat.ID DESC 
+LIMIT 0, 10
+');
 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 ?>
 				<h2>
@@ -24,19 +31,17 @@ $reponse = $bdd->query('SELECT username, message FROM minichat ORDER BY ID DESC 
 <?php
 while ($donnees = $reponse->fetch()) {
 	if(($donnees['username']) === "totor") {
-	echo '<li><strong class="promptadmin">' . htmlspecialchars($donnees['username']) . ':~#</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
+	echo '<li><strong class="promptadmin">' . strtolower(htmlspecialchars($donnees['username'])) . ':~#</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
 	} else {
-	echo '<li><strong class="promptuser">' . htmlspecialchars($donnees['username']) . ':~$</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
+	echo '<li><strong class="promptuser">' . strtolower(htmlspecialchars($donnees['username'])) . ':~$</strong> : ' . htmlspecialchars($donnees['message']) . '</li>';
 	}
 }
 
 $reponse->closeCursor();
 ?>
 </ul>
-				
 <form id="chat" action="minichat_post.php" method="post">
 <p class="label">Type your message here</p>
 <textarea type="text" name="newmessage" rows="3" cols="50" maxlength=140></textarea><br>
-<input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>">
 <input type="submit" value="New Message">
 </form>
